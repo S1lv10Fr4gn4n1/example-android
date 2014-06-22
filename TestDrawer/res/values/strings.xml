@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestDrawer</string>
+    <string name="label_hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string-array name="languages">
+        <item>Java</item>
+        <item>C/C++</item>
+        <item>PHP</item>
+        <item>Obj-C</item>
+        <item>Lua</item>
+        <item>Ruby</item>
+    </string-array>
+    
+    <string name="label_drawer_open">Open</string>
+    <string name="label_drawer_close">Close</string>
+
+</resources>
