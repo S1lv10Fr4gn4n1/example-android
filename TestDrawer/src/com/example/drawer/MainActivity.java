@@ -86,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void selectLanguage(int index) {
-		String language = languageTitles[index];
+		String language = this.languageTitles[index];
 
 		LanguageFragment fragment = new LanguageFragment();
 
@@ -126,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (drawerToggle.onOptionsItemSelected(item)) {
+		if (this.drawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
 
@@ -143,7 +143,7 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if the nav drawer is open, hide action items related to the content view
-		boolean drawerOpen = drawerLayout.isDrawerOpen(listview);
+		boolean drawerOpen = this.drawerLayout.isDrawerOpen(listview);
 		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
