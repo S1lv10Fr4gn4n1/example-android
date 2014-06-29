@@ -7,8 +7,13 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SlidingPaneLayout;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 
 public class MainActivity extends Activity implements MenuItemListener {
 
@@ -34,10 +39,38 @@ public class MainActivity extends Activity implements MenuItemListener {
 		}
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		this.getMenuInflater().inflate(R.menu.menu, menu);
+
+		MenuItem searchItem = menu.findItem(R.id.menu_action_search);
+		SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+		searchView.setQueryHint(getString(R.string.hint_search));
+		searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				Log.d(getClass().getSimpleName(), "onQueryTextSubmit");
+				return false;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				Log.d(getClass().getSimpleName(), "onQueryTextChange");
+				return false;
+			}
+		});
+		return super.onCreateOptionsMenu(menu);
+	}
+
 	private void initComponents() {
 		this.slidingPaneLayout = (SlidingPaneLayout) findViewById(R.id.sliding_panel);
+		this.slidingPaneLayout.setParallaxDistance(100);
+		this.slidingPaneLayout.setShadowResource(R.drawable.sliding_pane_shadow);
+
 		this.getActionBar().setDisplayHomeAsUpEnabled(true);
-		this.getActionBar().setDisplayShowHomeEnabled(true);
+		this.getActionBar().setDisplayUseLogoEnabled(true);
+
+		this.getActionBar().setDisplayShowTitleEnabled(true);
 		this.getActionBar().setTitle("Fruits");
 	}
 
