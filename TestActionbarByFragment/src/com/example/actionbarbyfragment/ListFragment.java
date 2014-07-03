@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -35,6 +36,9 @@ public class ListFragment extends Fragment {
 	private ListView listview;
 	private ListFragmentAdapter adapter;
 
+	private ActionMode.Callback actionModeCallback;
+	private ArrayList<String> listFruit;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,37 +49,79 @@ public class ListFragment extends Fragment {
 		this.setHasOptionsMenu(true);
 
 		View view = inflater.inflate(R.layout.list, container, false);
+		this.initComponents(view);
+		this.setListeners();
+		this.loadData();
 
-		final List<String> list = new ArrayList<String>();
-		list.add("Avocado");
-		list.add("Orange");
-		list.add("Banada");
-		list.add("Strawberry");
-		list.add("Apple");
-		list.add("Lemon");
-		list.add("Watermelon");
-		list.add("Grapes");
-		list.add("Pear");
-		list.add("Cherry");
-		list.add("Peach");
-		list.add("Pineapple");
-		list.add("Papaya");
-		this.adapter = new ListFragmentAdapter(getActivity(), list);
+		return view;
+	}
 
+	private void initComponents(View view) {
 		this.listview = (ListView) view.findViewById(R.id.list_listview);
-		registerForContextMenu(this.listview);
-		this.listview.setAdapter(this.adapter);
+		this.registerForContextMenu(this.listview);
+		
+		this.actionModeCallback = new ActionMode.Callback() {
+			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+				MenuInflater inflater = mode.getMenuInflater();
+				inflater.inflate(R.menu.list_menu, menu);
+				return true;
+			}
+
+			public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+				return false;
+			}
+
+			public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+				switch (item.getItemId()) {
+					case R.id.list_menu_action_add:
+						Toast.makeText(getActivity(), "Action mode (+)", Toast.LENGTH_SHORT).show();
+						mode.finish();
+						return true;
+					default:
+						return false;
+				}
+			}
+
+			public void onDestroyActionMode(ActionMode mode) {
+				Toast.makeText(getActivity(), "OK Selected", Toast.LENGTH_SHORT).show();
+			}
+		};
+	}
+
+	private void setListeners() {
 		this.listview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				FruittFragment fragment = new FruittFragment();
 				Bundle args = new Bundle();
-				args.putString("text", list.get(position));
+				args.putString("text", listFruit.get(position));
 				fragment.setArguments(args);
 				switchFragment(fragment);
 			}
 		});
+	}
 
-		return view;
+	private void loadData() {
+		this.listFruit = new ArrayList<String>();
+		this.listFruit.add("Avocado");
+		this.listFruit.add("Orange");
+		this.listFruit.add("Banada");
+		this.listFruit.add("Strawberry");
+		this.listFruit.add("Apple");
+		this.listFruit.add("Lemon");
+		this.listFruit.add("Watermelon");
+		this.listFruit.add("Grapes");
+		this.listFruit.add("Pear");
+		this.listFruit.add("Cherry");
+		this.listFruit.add("Peach");
+		this.listFruit.add("Pineapple");
+		this.listFruit.add("Papaya");
+
+		this.initAdapter();
+	}
+
+	private void initAdapter() {
+		this.adapter = new ListFragmentAdapter(getActivity(), this.listFruit);
+		this.listview.setAdapter(this.adapter);
 	}
 
 	@Override
@@ -105,7 +151,7 @@ public class ListFragment extends Fragment {
 		ShareActionProvider shareActionProvider = (ShareActionProvider) shareItem.getActionProvider();
 		shareActionProvider.setShareIntent(getDefaultIntent());
 	}
-	
+
 	private Intent getDefaultIntent() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
@@ -119,6 +165,10 @@ public class ListFragment extends Fragment {
 		switch (item.getItemId()) {
 			case R.id.list_menu_action_add:
 				Toast.makeText(getActivity(), "Add!", Toast.LENGTH_SHORT).show();
+				return true;
+				
+			case R.id.list_menu_action_mode:
+				getActivity().startActionMode(this.actionModeCallback);
 				return true;
 		}
 		return super.onOptionsItemSelected(item);

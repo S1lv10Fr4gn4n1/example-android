@@ -13,5 +13,6 @@
     <string name="hint_search">Search here...</string>
     
     <string name="action_share">Share</string>
+    <string name="action_mode">Action Mode</string>
 
 </resources>
