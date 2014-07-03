@@ -20,9 +20,9 @@ public class FruittFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		
+
 		this.setHasOptionsMenu(true);
-		
+
 		View view = inflater.inflate(R.layout.fragment_main, container, false);
 
 		TextView textview = (TextView) view.findViewById(R.id.fragment_main_title);
@@ -35,12 +35,12 @@ public class FruittFragment extends Fragment {
 
 		return view;
 	}
-	
+
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		getActivity().getMenuInflater().inflate(R.menu.fragment_menu, menu);
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -50,5 +50,5 @@ public class FruittFragment extends Fragment {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 }
