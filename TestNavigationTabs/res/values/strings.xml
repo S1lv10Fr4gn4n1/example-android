@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestNavigationTabs</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_avocado">Avocado</string>
+    <string name="label_orange">Orange</string>
+    <string name="label_banada">Banada</string>
+    <string name="label_strawberry">Strawberry</string>
+    <string name="label_apple">Apple</string>
+    <string name="label_lemon">Lemon</string>
+    <string name="label_watermelon">Watermelon</string>
+    <string name="label_grapes">Grapes</string>
+    <string name="label_pear">Pear</string>
+    <string name="label_cherry">Cherry</string>
+    <string name="label_peach">Peach</string>
+    <string name="label_pineapple">Pineapple</string>
+    <string name="label_papaya">Papaya</string>
+
+</resources>
