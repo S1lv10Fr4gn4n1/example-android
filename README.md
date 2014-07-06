@@ -15,6 +15,9 @@ example-android
   - <b>[TestOnlyNDK](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestOnlyNDK)</b><br>
     Example of app using only C++ ([NDK](https://developer.android.com/tools/sdk/ndk/index.html)) without Java files 
 
+  - <b>[TestService](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestService)</b><br>
+    Example of app using [Service](http://developer.android.com/guide/components/services.html), if you finish the service it will start again
+
   - <b>[TestSlidingPaneLayout](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestSlidingPaneLayout)</b><br>
     Example of app using [SlidingPaneLayout](https://developer.android.com/reference/android/support/v4/widget/SlidingPaneLayout.html) component
 
