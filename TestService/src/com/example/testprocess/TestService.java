@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.BigPictureStyle;
@@ -54,7 +55,7 @@ public class TestService extends Service {
 			public void run() {
 				doSomething();
 			}
-		}, 0, 5, TimeUnit.SECONDS);
+		}, 0, 30, TimeUnit.MINUTES);
 	}
 
 	private Notification getNotification(final String title, final String message, Style style) {
@@ -69,7 +70,7 @@ public class TestService extends Service {
 		builder.setLights(Color.YELLOW, 1000, 500);
 		if (style != null) {
 //			builder.setDefaults(Notification.DEFAULT_SOUND);
-//			builder.setSound(Uri.parse("android.resource://com.example.testprocess/" + R.raw.haha));
+			builder.setSound(Uri.parse("android.resource://com.example.testprocess/" + R.raw.haha));
 			builder.setStyle(style);
 		}
 //		builder.setProgress(100, 1, true);
