@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestFileProvider</string>
+    <string name="title_activity_file_select">FileSelectActivity</string>
+    <string name="label_call_file_provider">Call a File provider</string>
+    <string name="label_call_provider">Call Provider</string>
+
+</resources>
