@@ -8,6 +8,10 @@
 # Java class files
 *.class
 
+# Android NDK
+gbd.setup
+gbdserver
+
 # Generated files
 bin/
 gen/
