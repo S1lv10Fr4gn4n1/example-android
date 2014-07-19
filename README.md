@@ -5,9 +5,12 @@ example-android
 
   - <b>[TestDrawer](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestDrawer)</b><br>
     A sample of how to use [DrawerLayout](https://developer.android.com/reference/android/support/v4/widget/DrawerLayout.html)
+
+  - <b>[TestFileProvider](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestFileProvider)</b><br>
+    Example of [FileProvider](http://developer.android.com/reference/android/support/v4/content/FileProvider.html). The app is a provider and also consume it.
   
   - <b>[TestListviewEffects](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestListviewEffects)</b><br>
-    Examplo of app with a listview where has effect on show each item
+    Example of app with a listview where has effect on show each item
 
   - <b>[TestNavigationTabs](https://github.com/S1lv10Fr4gn4n1/example-android/tree/master/TestNavigationTabs)</b><br>
     Example of an app using [ViewPager](http://developer.android.com/reference/android/support/v4/view/ViewPager.html) with [PagerTitleStrip](http://developer.android.com/reference/android/support/v4/view/PagerTitleStrip.html).
