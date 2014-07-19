@@ -1,2 +1,0 @@
-set solib-search-path ./obj/local/x86
-directory /Users/silviofragnani/Development/android-x86_64/android-ndk-r9b/platforms/android-9/arch-x86/usr/include /Users/silviofragnani/Development/android-x86_64/android-ndk-r9b/sources/android/native_app_glue /Users/silviofragnani/Development/android-x86_64/android-ndk-r9b/sources/cxx-stl/system/include jni
