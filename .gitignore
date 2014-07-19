@@ -11,6 +11,12 @@
 # Android NDK
 gbd.setup
 gbdserver
+x86/
+armeabi/
+armeabi-v7a/
+
+# Eclipse
+.settings/
 
 # Generated files
 bin/
