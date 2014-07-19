@@ -11,9 +11,9 @@
 # Android NDK
 gbd.setup
 gbdserver
-x86/
-armeabi/
-armeabi-v7a/
+libs/x86/
+libs/armeabi/
+libs/armeabi-v7a/
 
 # Eclipse
 .settings/
